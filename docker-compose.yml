@@ -1,0 +1,21 @@
+version: "2"
+services:
+  nginx:
+    build:
+      context: ./docker/nginx
+    ports:
+      - "${DC_HOST_PORT}:80"
+    links:
+      - fpm
+    volumes_from:
+      - data
+  fpm:
+    build:
+      context: ./docker/php
+    volumes_from:
+      - data
+  data:
+    build:
+      context: ./docker/data
+    volumes:
+      - ${DC_SITE}:/var/www/html

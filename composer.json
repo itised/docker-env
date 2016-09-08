@@ -1,0 +1,4 @@
+{
+    "name": "itised/docker-env",
+    "bin": ["bin/install-dc-config"]
+}
