@@ -4,7 +4,7 @@ read -p "Continuing will overwrite existing docker files. Would you like to cont
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    mkdir docker
+    mkdir -p docker
 
     cp -r vendor/itised/docker-env/data docker/
     cp -r vendor/itised/docker-env/nginx docker/
