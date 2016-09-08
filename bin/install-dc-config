@@ -2,8 +2,8 @@
 
 mkdir docker
 
-cp vendor/itised/docker-env/data docker/
-cp vendor/itised/docker-env/nginx docker/
-cp vendor/itised/docker-env/php docker/
+cp -r vendor/itised/docker-env/data docker/
+cp -r vendor/itised/docker-env/nginx docker/
+cp -r vendor/itised/docker-env/php docker/
 
 cp vendor/itised/docker-env/docker-compose.yml ./docker-compose.yml
