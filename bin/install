@@ -1,0 +1,27 @@
+#!/bin/bash
+
+read -p "Continuing will overwrite existing docker files. Would you like to continue? [y/n] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    envFile=.env
+    if [ ! -e "$envFile" ] ; then
+        touch "$envFile"
+        echo "COMPOSE_PROJECT_NAME=" >> $envFile
+        echo "DC_HOST_PORT=80" >> $envFile
+        echo "DC_SITE=/mnt/hgfs/Sites/=" >> $envFile
+    elif [ ! -w "$envFile" ] ; then
+        echo cannot write to $envFile
+        exit 1
+    else
+        grep -q -F 'COMPOSE_PROJECT_NAME' $envFile || echo 'COMPOSE_PROJECT_NAME=' >> $envFile
+        grep -q -F 'DC_HOST_PORT' $envFile || echo 'DC_HOST_PORT=80' >> $envFile
+        grep -q -F 'DC_SITE' $envFile || echo 'COMPOSE_PROJECT_NAME=/mnt/hgfs/Sites/' >> $envFile
+    fi
+
+    mkdir -p docker
+    cp -r vendor/itised/docker-env/data docker/
+    cp -r vendor/itised/docker-env/nginx docker/
+    cp -r vendor/itised/docker-env/php docker/
+    cp vendor/itised/docker-env/docker-compose.yml ./docker-compose.yml
+fi
