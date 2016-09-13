@@ -1,5 +1,8 @@
 {
     "name": "itised/docker-env",
-    "bin": ["bin/install-dc-config"],
+    "description": "docker-compose files for development environment",
+    "keywords": ["docker", "compose", "dev"],
+    "type": "project",
+    "bin": ["bin/install"],
     "require": {}
 }
