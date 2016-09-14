@@ -2,7 +2,9 @@
     "name": "itised/docker-env",
     "description": "docker-compose files for development environment",
     "keywords": ["docker", "compose", "dev"],
-    "type": "project",
+    "type": "library",
     "bin": ["bin/install"],
-    "require": {}
+    "require": {},
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
