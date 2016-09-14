@@ -3,7 +3,7 @@
     "description": "docker-compose files for development environment",
     "keywords": ["docker", "compose", "dev"],
     "type": "library",
-    "bin": ["bin/install"],
+    "bin": ["bin/de-install"],
     "require": {},
     "minimum-stability": "dev",
     "prefer-stable": true
