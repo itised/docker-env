@@ -1,9 +1,9 @@
 #!/bin/bash
 
-read -p "Continuing will overwrite existing docker files. Would you like to continue? [y/n] " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+#read -p "Continuing will overwrite existing docker files. Would you like to continue? [y/n] " -n 1 -r
+#echo
+#if [[ $REPLY =~ ^[Yy]$ ]]
+#then
     envFile=.env
     if [ ! -e "$envFile" ] ; then
         touch "$envFile"
@@ -24,4 +24,6 @@ then
     cp -r vendor/itised/docker-env/nginx docker/
     cp -r vendor/itised/docker-env/php docker/
     cp vendor/itised/docker-env/docker-compose.yml ./docker-compose.yml
-fi
+
+    echo "docker-env has been installed. .env keys must be set."
+#fi
