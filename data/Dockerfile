@@ -1,1 +1,1 @@
-FROM busybox:1.25.0-glibc
+FROM busybox:1.26-glibc
