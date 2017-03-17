@@ -29,3 +29,5 @@
 
 `DC_SITE`
 : The path to the root of your project on your host machine
+
+5. Run `docker-composer up` from the project root to spin everything up
