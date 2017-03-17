@@ -9,14 +9,14 @@
         touch "$envFile"
         echo "COMPOSE_PROJECT_NAME=" >> $envFile
         echo "DC_HOST_PORT=80" >> $envFile
-        echo "DC_SITE=/mnt/hgfs/Sites/" >> $envFile
+        echo "DC_SITE=/path/to/root/" >> $envFile
     elif [ ! -w "$envFile" ] ; then
         echo cannot write to $envFile
         exit 1
     else
         grep -q -F 'COMPOSE_PROJECT_NAME' $envFile || echo 'COMPOSE_PROJECT_NAME=' >> $envFile
         grep -q -F 'DC_HOST_PORT' $envFile || echo 'DC_HOST_PORT=80' >> $envFile
-        grep -q -F 'DC_SITE' $envFile || echo 'COMPOSE_PROJECT_NAME=/mnt/hgfs/Sites/' >> $envFile
+        grep -q -F 'DC_SITE' $envFile || echo 'DC_SITE=/path/to/root/' >> $envFile
     fi
 
     mkdir -p docker
